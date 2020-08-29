@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>investigacion aplicada</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <h1 class="text-center pulse animated infinite" style="font-family: Abel, sans-serif;background-color: rgba(222,113,113,0.74);">Investigacion aplicada ejemplo de canvas</h1>
+    <nav class="navbar navbar-light navbar-expand-md" style="background-image: url(&quot;assets/img/tumblr_static_tumblr_static__640.jpg&quot;);">
+        <div class="container-fluid"><a class="navbar-brand" href="#">Investigacion aplicada 1 ejemplo etiqueta canvas</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="#">
+                            <div class="btn-group" role="group"></div><i class="fa fa-pencil" style="font-size: 27px;margin: 11px;"></i><button class="btn btn-success" type="button">Dibujar</button></a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <canvas width="1300" height="710" id="ejemploCanvas" style="border: 1px solid black"  ></canvas>
+    <script> 
+       var canvas, ctx, x, y;
+
+// Obtenemos una referencia al canvas
+canvas = document.getElementById('ejemploCanvas');
+
+// Y a su "contexto 2d"
+ctx = canvas.getContext('2d');
+
+// Generamos las coordenadas iniciales
+x = 0;
+y = 0;
+
+// Los frames seran renderizados por este intervalo
+// aproximadamente a 24 frames por segundo (fps)
+setInterval(function() {
+    
+    // Limpiamos el canvas, eliminando el contenido
+    // desde el punto (0, 0) al punto (100, 100)
+    ctx.clearRect(0, 0, 700, 700);    
+    
+    // Generamos nuevas coordenadas
+    // Que basicamente representan un desplazamiento lineal
+    x = x >= 700 ? 0 : x + 1;
+    y = y >= 700 ? 0 : y + 1;
+    
+    // Y dibujamos nuevamente
+    ctx.fillRect(x, y, 50, 50);
+    
+}, 1000 / 24);
+
+    </script>
+   
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+
+</body>
+
+</html>
